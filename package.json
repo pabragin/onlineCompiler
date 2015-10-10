@@ -1,0 +1,27 @@
+{
+  "name": "onlineCompiler",
+  "description": "Backbone Online Compliler",
+  "version": "0.0.1",
+  "private": true,
+  "author": "https://github.com/pabragin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pabragin/onlineCompiler.git"
+  },
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=2.14.2",
+    "tsc": ">=1.6.2"
+  },
+  "scripts": {
+    "start": "gulp",
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "gulp": "3.9.0",
+    "gulp-uglify": "1.4.1",
+    "gulp-typescript": "2.9.2",
+    "gulp-less": "3.0.3",
+    "gulp-clean": "0.3.1"
+  }
+}

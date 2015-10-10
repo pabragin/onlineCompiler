@@ -1,0 +1,1 @@
+var Client=function(){function n(){Backbone.history.start()}return n}();
