@@ -10,11 +10,11 @@ gulp.task('ts', function () {
     //compile typescript and minify it
     gulp.src(['client/ts/**/*.ts'])
         .pipe(typescript({
-            module: "Client",
+            module: "amd",
             sourcemap: true,
             emitError: false
         }))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('client/build/js'));
 });
 

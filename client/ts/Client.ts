@@ -13,15 +13,14 @@ class Client
   constructor()
   {
     var app = new Marionette.Application();
-    app.on("before:start", function(options){
-      options.moreData = "Yo dawg, I heard you like options so I put some options in your options!";
-    });
-    app.on("start", function(options){
-      console.log(options);
+    app.on("start", function(){
       if (Backbone.history){
         Backbone.history.start();
       }
     });
     app.start();
+    console.log(app);
   }
 }
+
+export = Client;
