@@ -1,6 +1,7 @@
 /// <reference path="../headers/jquery/jquery.d.ts" />
 /// <reference path="../headers/requirejs/require.d.ts" />
 /// <reference path="../headers/backbone/backbone.d.ts" />
+/// <reference path="../headers/marionette/marionette.d.ts" />
 
 /**
  * Client is the main application class, it bootstraps the app.
@@ -11,7 +12,16 @@ class Client
 {
   constructor()
   {
-    // start the router
-    Backbone.history.start();
+    var app = new Marionette.Application();
+    app.on("before:start", function(options){
+      options.moreData = "Yo dawg, I heard you like options so I put some options in your options!";
+    });
+    app.on("start", function(options){
+      console.log(options);
+      if (Backbone.history){
+        Backbone.history.start();
+      }
+    });
+    app.start();
   }
 }

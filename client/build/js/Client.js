@@ -1,1 +1,1 @@
-var Client=function(){function n(){Backbone.history.start()}return n}();
+var Client=function(){function o(){var o=new Marionette.Application;o.on("before:start",function(o){o.moreData="Yo dawg, I heard you like options so I put some options in your options!"}),o.on("start",function(o){console.log(o),Backbone.history&&Backbone.history.start()})}return o}();

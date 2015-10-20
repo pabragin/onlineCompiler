@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     typescript = require('gulp-typescript'),
     clean = require('gulp-clean'),
-    less = require('gulp-less');
+    less = require('gulp-less'),
+    webserver = require('gulp-webserver');
 
 gulp.task('ts', function () {
 
@@ -42,6 +43,12 @@ gulp.task('tmpl', function () {
         .pipe(gulp.dest('client/build/tmpl'));
 });
 
+gulp.task('other', function () {
+    //copy other
+    gulp.src(['client/index.html'])
+        .pipe(gulp.dest('client/build'));
+});
+
 gulp.task('clean', function () {
     //copy fonts
     gulp.src('client/build', {read: false})
@@ -56,4 +63,13 @@ gulp.task('watch', function () {
     gulp.watch('client/ts/**', ['font']);
 });
 
-gulp.task('default', ['ts', 'less', 'lib', 'font', 'tmpl']);
+gulp.task('webserver', function() {
+    gulp.src('client/build')
+        .pipe(webserver({
+            livereload: true,
+            open: true,
+            fallback: 'client/build/index.html'
+        }));
+});
+
+gulp.task('default', ['ts', 'less', 'lib', 'font', 'tmpl', 'other']);
